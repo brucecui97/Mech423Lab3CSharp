@@ -31,14 +31,16 @@ namespace ex2
         private void writeMotorCommand(ushort numTicks, int direction)
         {
             byte[] numberBytes = BitConverter.GetBytes(numTicks);
-            Byte upByte = (byte)(numTicks >> 8);
-            Byte downByte = (byte)(numTicks & 255);
             byte[] bytesToSend = { 255, numberBytes[1], numberBytes[0], (byte) direction};
             debugTxtBox.AppendText(numberBytes[1].ToString() + "," + numberBytes[0].ToString());
             //debugTxtBox.AppendText(bytesToSend[0].ToString() + "," + bytesToSend[3].ToString());
 
-
-            serialPort1.Write(numberBytes, 0, 0);
+            if (serialPort1.IsOpen)
+            {
+                debugTxtBox.AppendText(numberBytes.Length.ToString());
+                serialPort1.Write(bytesToSend, 0, 4);
+                debugTxtBox.AppendText("wrote something");
+            }
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
