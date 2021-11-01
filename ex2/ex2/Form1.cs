@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -19,7 +20,12 @@ namespace ex2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            comboBoxCOMPorts.Items.Clear();
+            comboBoxCOMPorts.Items.AddRange(SerialPort.GetPortNames());
+            if (comboBoxCOMPorts.Items.Count == 0)
+                comboBoxCOMPorts.Text = "No COM ports!";
+            else
+                comboBoxCOMPorts.SelectedIndex = 0;
         }
 
         private void writeMotorCommand(ushort numTicks, int direction)
@@ -33,6 +39,23 @@ namespace ex2
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             trackBarTxtBox.Text = trackBar1.Value.ToString();
+        }
+
+        private void openPort_Click(object sender, EventArgs e)
+        {
+            debugTxtBox.AppendText("clicked open port");
+            serialPort1.PortName = comboBoxCOMPorts.Text;
+            serialPort1.Open();
+            serialPort1.Write("A");
+            //displayContentTimer.Enabled = true;
+            debugTxtBox.AppendText("enabled timer");
+           
+
+        }
+
+        private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
