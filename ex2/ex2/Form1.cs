@@ -33,7 +33,12 @@ namespace ex2
             byte[] numberBytes = BitConverter.GetBytes(numTicks);
             Byte upByte = (byte)(numTicks >> 8);
             Byte downByte = (byte)(numTicks & 255);
-            debugTxtBox.AppendText(upByte.ToString() + "," + downByte.ToString());
+            byte[] bytesToSend = { 255, numberBytes[1], numberBytes[0], (byte) direction};
+            debugTxtBox.AppendText(numberBytes[1].ToString() + "," + numberBytes[0].ToString());
+            //debugTxtBox.AppendText(bytesToSend[0].ToString() + "," + bytesToSend[3].ToString());
+
+
+            serialPort1.Write(numberBytes, 0, 0);
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
