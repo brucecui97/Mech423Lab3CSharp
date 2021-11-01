@@ -46,7 +46,7 @@ namespace ex2
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             trackBarTxtBox.Text = trackBar1.Value.ToString();
-            writeMotorCommand(Convert.ToUInt16(trackBar1.Value), 1);
+            writeMotorCommand(Convert.ToUInt16(trackBar1.Value), Convert.ToInt16(directionTxtBox.Text));
         }
 
         private void openPort_Click(object sender, EventArgs e)
