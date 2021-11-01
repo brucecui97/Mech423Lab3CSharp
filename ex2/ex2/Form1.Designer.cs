@@ -33,6 +33,7 @@ namespace ex2
             this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.trackBarTxtBox = new System.Windows.Forms.TextBox();
+            this.debugTxtBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,11 +53,19 @@ namespace ex2
             this.trackBarTxtBox.Size = new System.Drawing.Size(100, 22);
             this.trackBarTxtBox.TabIndex = 1;
             // 
+            // debugTxtBox
+            // 
+            this.debugTxtBox.Location = new System.Drawing.Point(40, 204);
+            this.debugTxtBox.Name = "debugTxtBox";
+            this.debugTxtBox.Size = new System.Drawing.Size(265, 22);
+            this.debugTxtBox.TabIndex = 2;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.debugTxtBox);
             this.Controls.Add(this.trackBarTxtBox);
             this.Controls.Add(this.trackBar1);
             this.Name = "Form1";
@@ -73,6 +82,7 @@ namespace ex2
         private System.IO.Ports.SerialPort serialPort1;
         private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.TextBox trackBarTxtBox;
+        private System.Windows.Forms.TextBox debugTxtBox;
     }
 }
 

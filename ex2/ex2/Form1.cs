@@ -14,6 +14,7 @@ namespace ex2
         public Form1()
         {
             InitializeComponent();
+            writeMotorCommand(1600, 1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -21,9 +22,12 @@ namespace ex2
 
         }
 
-        private void writeMotorCommand(Decimal dutyCycle, int direction)
+        private void writeMotorCommand(ushort numTicks, int direction)
         {
-
+            byte[] numberBytes = BitConverter.GetBytes(numTicks);
+            Byte upByte = (byte)(numTicks >> 8);
+            Byte downByte = (byte)(numTicks & 255);
+            debugTxtBox.AppendText(upByte.ToString() + "," + downByte.ToString());
         }
 
         private void trackBar1_Scroll(object sender, EventArgs e)
