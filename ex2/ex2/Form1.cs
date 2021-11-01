@@ -39,6 +39,7 @@ namespace ex2
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             trackBarTxtBox.Text = trackBar1.Value.ToString();
+            writeMotorCommand(Convert.ToUInt16(trackBar1.Value), 1);
         }
 
         private void openPort_Click(object sender, EventArgs e)
@@ -46,14 +47,14 @@ namespace ex2
             debugTxtBox.AppendText("clicked open port");
             serialPort1.PortName = comboBoxCOMPorts.Text;
             serialPort1.Open();
-            serialPort1.Write("A");
-            //displayContentTimer.Enabled = true;
-            debugTxtBox.AppendText("enabled timer");
-           
-
         }
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }
