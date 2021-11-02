@@ -49,11 +49,12 @@ namespace ex2
             // 
             this.trackBar1.LargeChange = 100;
             this.trackBar1.Location = new System.Drawing.Point(12, 49);
-            this.trackBar1.Maximum = 65535;
-            this.trackBar1.Minimum = -65535;
+            this.trackBar1.Maximum = 255;
+            this.trackBar1.Minimum = 255;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(480, 56);
             this.trackBar1.TabIndex = 0;
+            this.trackBar1.Value = 255;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // trackBarTxtBox
