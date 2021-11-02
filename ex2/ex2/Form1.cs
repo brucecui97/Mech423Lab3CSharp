@@ -47,10 +47,10 @@ namespace ex2
 
             if (trackBar1.Value < 0)
             {
-                writeMotorCommand(Convert.ToByte(trackBar1.Value * -1), 2, 0);
+                writeMotorCommand(Convert.ToByte(trackBar1.Value * -1), 2, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
             }
             else {
-                writeMotorCommand(Convert.ToByte(trackBar1.Value), 1, 0);
+                writeMotorCommand(Convert.ToByte(trackBar1.Value), 1, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
             }
         }
 

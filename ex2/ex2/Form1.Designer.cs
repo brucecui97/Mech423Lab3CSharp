@@ -40,6 +40,8 @@ namespace ex2
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.shouldDoOneStepTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -123,11 +125,29 @@ namespace ex2
             this.label4.TabIndex = 9;
             this.label4.Text = "cw";
             // 
+            // shouldDoOneStepTxtBox
+            // 
+            this.shouldDoOneStepTxtBox.Location = new System.Drawing.Point(532, 49);
+            this.shouldDoOneStepTxtBox.Name = "shouldDoOneStepTxtBox";
+            this.shouldDoOneStepTxtBox.Size = new System.Drawing.Size(100, 22);
+            this.shouldDoOneStepTxtBox.TabIndex = 10;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(649, 49);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(105, 17);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "shouldDo1Step";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.shouldDoOneStepTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -158,6 +178,8 @@ namespace ex2
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox shouldDoOneStepTxtBox;
+        private System.Windows.Forms.Label label5;
     }
 }
 
