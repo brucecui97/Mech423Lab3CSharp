@@ -28,16 +28,14 @@ namespace ex2
                 comboBoxCOMPorts.SelectedIndex = 0;
         }
 
-        private void writeMotorCommand(ushort numTicks, int direction)
+        private void writeMotorCommand(byte speed, byte direction, byte shoulDoOneStep)
         {
-            byte[] numberBytes = BitConverter.GetBytes(numTicks);
-            byte[] bytesToSend = { 255, numberBytes[1], numberBytes[0], (byte) direction};
-            debugTxtBox.AppendText(numberBytes[1].ToString() + "," + numberBytes[0].ToString());
+            byte[] bytesToSend = { 255, speed, direction, shoulDoOneStep };
+            debugTxtBox.AppendText(bytesToSend[0].ToString() + "," + bytesToSend[1].ToString());
             //debugTxtBox.AppendText(bytesToSend[0].ToString() + "," + bytesToSend[3].ToString());
 
             if (serialPort1.IsOpen)
             {
-                debugTxtBox.AppendText(numberBytes.Length.ToString());
                 serialPort1.Write(bytesToSend, 0, 4);
                 debugTxtBox.AppendText("wrote something");
             }
@@ -49,10 +47,10 @@ namespace ex2
 
             if (trackBar1.Value < 0)
             {
-                writeMotorCommand(Convert.ToUInt16(trackBar1.Value * -1), 2);
+                writeMotorCommand(Convert.ToByte(trackBar1.Value * -1), 2, 0);
             }
             else {
-                writeMotorCommand(Convert.ToUInt16(trackBar1.Value), 1);
+                writeMotorCommand(Convert.ToByte(trackBar1.Value), 1, 0);
             }
         }
 
