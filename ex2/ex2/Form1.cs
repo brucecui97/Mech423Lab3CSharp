@@ -78,5 +78,20 @@ namespace ex2
         {
 
         }
+
+        private void oneStepCCWButton_Click(object sender, EventArgs e)
+        {
+            if (shouldDoOneStepTxtBox.Text == "1") {
+                writeMotorCommand(0, 2, 1);
+            }
+        }
+
+        private void oneStepCWButton_Click(object sender, EventArgs e)
+        {
+            if (shouldDoOneStepTxtBox.Text == "1")
+            {
+                writeMotorCommand(0, 1, 1);
+            }
+        }
     }
 }

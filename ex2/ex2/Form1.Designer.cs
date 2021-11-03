@@ -42,6 +42,8 @@ namespace ex2
             this.label4 = new System.Windows.Forms.Label();
             this.shouldDoOneStepTxtBox = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.oneStepCWButton = new System.Windows.Forms.Button();
+            this.oneStepCCWButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -142,11 +144,33 @@ namespace ex2
             this.label5.TabIndex = 11;
             this.label5.Text = "shouldDo1Step";
             // 
+            // oneStepCWButton
+            // 
+            this.oneStepCWButton.Location = new System.Drawing.Point(382, 117);
+            this.oneStepCWButton.Name = "oneStepCWButton";
+            this.oneStepCWButton.Size = new System.Drawing.Size(110, 23);
+            this.oneStepCWButton.TabIndex = 12;
+            this.oneStepCWButton.Text = "stepCW";
+            this.oneStepCWButton.UseVisualStyleBackColor = true;
+            this.oneStepCWButton.Click += new System.EventHandler(this.oneStepCWButton_Click);
+            // 
+            // oneStepCCWButton
+            // 
+            this.oneStepCCWButton.Location = new System.Drawing.Point(25, 117);
+            this.oneStepCCWButton.Name = "oneStepCCWButton";
+            this.oneStepCCWButton.Size = new System.Drawing.Size(100, 23);
+            this.oneStepCCWButton.TabIndex = 13;
+            this.oneStepCCWButton.Text = "stepCCW";
+            this.oneStepCCWButton.UseVisualStyleBackColor = true;
+            this.oneStepCCWButton.Click += new System.EventHandler(this.oneStepCCWButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.oneStepCCWButton);
+            this.Controls.Add(this.oneStepCWButton);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.shouldDoOneStepTxtBox);
             this.Controls.Add(this.label4);
@@ -181,6 +205,8 @@ namespace ex2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox shouldDoOneStepTxtBox;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button oneStepCWButton;
+        private System.Windows.Forms.Button oneStepCCWButton;
     }
 }
 
