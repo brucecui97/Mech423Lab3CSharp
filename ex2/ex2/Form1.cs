@@ -15,7 +15,6 @@ namespace ex2
         public Form1()
         {
             InitializeComponent();
-            writeMotorCommand(1600, 1);
         }
 
         private void Form1_Load(object sender, EventArgs e)
