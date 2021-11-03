@@ -44,12 +44,16 @@ namespace ex2
         {
             trackBarTxtBox.Text = trackBar1.Value.ToString();
 
-            if (trackBar1.Value < 0)
+            if (serialPort1.IsOpen)
             {
-                writeMotorCommand(Convert.ToByte(trackBar1.Value * -1), 2, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
-            }
-            else {
-                writeMotorCommand(Convert.ToByte(trackBar1.Value), 1, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
+                if (trackBar1.Value < 0)
+                {
+                    writeMotorCommand(Convert.ToByte(trackBar1.Value * -1), 2, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
+                }
+                else
+                {
+                    writeMotorCommand(Convert.ToByte(trackBar1.Value), 1, Convert.ToByte(Convert.ToInt32(shouldDoOneStepTxtBox.Text)));
+                }
             }
         }
 
