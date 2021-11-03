@@ -44,7 +44,7 @@ namespace ex2
         {
             trackBarTxtBox.Text = trackBar1.Value.ToString();
 
-            if (serialPort1.IsOpen)
+            if (serialPort1.IsOpen && shouldDoOneStepTxtBox.Text == "0")
             {
                 if (trackBar1.Value < 0)
                 {

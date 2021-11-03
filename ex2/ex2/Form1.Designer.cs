@@ -36,7 +36,6 @@ namespace ex2
             this.debugTxtBox = new System.Windows.Forms.TextBox();
             this.openPort = new System.Windows.Forms.Button();
             this.comboBoxCOMPorts = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -90,15 +89,6 @@ namespace ex2
             this.comboBoxCOMPorts.Name = "comboBoxCOMPorts";
             this.comboBoxCOMPorts.Size = new System.Drawing.Size(121, 24);
             this.comboBoxCOMPorts.TabIndex = 4;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(149, 161);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(99, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "NumTicksHigh";
             // 
             // label1
             // 
@@ -176,7 +166,6 @@ namespace ex2
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.comboBoxCOMPorts);
             this.Controls.Add(this.openPort);
             this.Controls.Add(this.debugTxtBox);
@@ -199,7 +188,6 @@ namespace ex2
         private System.Windows.Forms.TextBox debugTxtBox;
         private System.Windows.Forms.Button openPort;
         private System.Windows.Forms.ComboBox comboBoxCOMPorts;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
