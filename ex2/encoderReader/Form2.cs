@@ -21,6 +21,7 @@ namespace WindowsFormsApp1
         EncoderDataCategory currentEncoderValue = EncoderDataCategory.Unknown;
         Double processedSpeedHz = double.NaN;
         long startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        double netEncoderStepsTakenSinceStart = 0;
 
         public Form1()
         {
@@ -151,6 +152,7 @@ namespace WindowsFormsApp1
                 ThreadHelperClass.SetText(this, revPerSecTxtBox, EncoderDataHandler.calculateRotationalSpeedHz(encoderData).ToString());
 
                 processedSpeedHz = EncoderDataHandler.calculateRotationalSpeedHz(encoderData);
+                netEncoderStepsTakenSinceStart = netEncoderStepsTakenSinceStart + EncoderDataHandler.calculateNetStepChange(encoderData);
             }
         }
 

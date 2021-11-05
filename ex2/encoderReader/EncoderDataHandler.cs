@@ -30,5 +30,18 @@ namespace WindowsFormsApp1
         {
             return calculateRotationalSpeedHz(encoderData)* SIXTY_SECONDS_PER_MINUTE;
         }
+
+        public static double calculateNetStepChange(EncoderData encoderData)
+        {
+            byte[] channelAByteArray =
+{ (byte) encoderData.channelADiffLSB, (byte) encoderData.channelADiffMSB};
+            double channelADiffCount = BitConverter.ToUInt16(channelAByteArray, 0);
+
+            byte[] channelBByteArray =
+                { (byte) encoderData.channelBDiffLSB, (byte) encoderData.channelBDiffMSB};
+            double channelBDiffCount = BitConverter.ToUInt16(channelBByteArray, 0);
+
+            return channelADiffCount - channelBDiffCount;
+        }
     }
 }
