@@ -32,6 +32,9 @@ namespace WindowsFormsApp1
            
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisX.Maximum = 10000;
+            chart1.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
+            chart1.ChartAreas[0].AxisY.Title = "motor speed revs per second";
+            chart1.ChartAreas[0].AxisX.Maximum = 10000;
             chart1.Series[0].IsValueShownAsLabel = false;
             chart1.Series[0].LegendText = "revolutions per second for motor";
             chart1.Series[0].ChartType = SeriesChartType.Point;

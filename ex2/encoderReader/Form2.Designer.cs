@@ -296,7 +296,7 @@
             this.chart1.Cursor = System.Windows.Forms.Cursors.Arrow;
             legend1.Name = "Legend1";
             this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(36, 485);
+            this.chart1.Location = new System.Drawing.Point(36, 464);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
             series1.ChartArea = "ChartArea1";
@@ -311,7 +311,7 @@
             series1.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
             series1.SmartLabelStyle.Enabled = false;
             this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(860, 167);
+            this.chart1.Size = new System.Drawing.Size(860, 331);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
             this.chart1.Click += new System.EventHandler(this.chart1_Click);
@@ -320,7 +320,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(947, 664);
+            this.ClientSize = new System.Drawing.Size(918, 807);
             this.Controls.Add(this.chart1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.revPerSecTxtBox);
