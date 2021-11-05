@@ -27,8 +27,12 @@ namespace WindowsFormsApp1
             InitializeComponent();
 
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-            // Create a line series.
+      
+            initPlot();
+        }
 
+        private void initPlot()
+        {
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisX.Maximum = 10000;
             chart1.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
