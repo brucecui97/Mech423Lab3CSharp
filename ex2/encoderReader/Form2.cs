@@ -111,6 +111,7 @@ namespace WindowsFormsApp1
                 chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS/2;
                 chart1.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
             }
+            netStepCountTxtBox.Text = netEncoderStepsTakenSinceStart.ToString();
         }
 
         private void processEncoderStream(int newByte)
@@ -205,6 +206,11 @@ namespace WindowsFormsApp1
         }
 
         private void chart1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }
