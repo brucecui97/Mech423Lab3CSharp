@@ -5,6 +5,7 @@ using System.IO;
 using System.IO.Ports;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace WindowsFormsApp1
 {
@@ -20,7 +21,20 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+            // Create a line series.
+
+            chart1.Series[0].LegendText = "Brazil Order Statistics";
+            chart1.Series[0].ChartType = SeriesChartType.Point;
+            chart1.Series[0].IsValueShownAsLabel = true;
+            chart1.Series[0].Points.AddXY(1, 2);
+            chart1.Series[0].Points.AddXY(1,0.75);
+
+            chart1.Series[0].Points.AddXY(0.5, 2);
+
+            chart1.Series[0].Points.AddXY(0.3, 5);
+
         }
 
         private void DataReceivedHandler(
@@ -166,6 +180,11 @@ namespace WindowsFormsApp1
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void chart1_Click(object sender, EventArgs e)
         {
 
         }
