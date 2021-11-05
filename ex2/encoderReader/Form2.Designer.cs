@@ -301,8 +301,15 @@
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
             series1.ChartArea = "ChartArea1";
             series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
             series1.Legend = "Legend1";
             series1.Name = "Series1";
+            series1.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series1.SmartLabelStyle.CalloutLineAnchorCapStyle = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Transparent;
+            series1.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
+            series1.SmartLabelStyle.Enabled = false;
             this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(860, 167);
             this.chart1.TabIndex = 17;

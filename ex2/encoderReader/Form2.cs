@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.IO.Ports;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace WindowsFormsApp1
 
         EncoderDataCategory currentEncoderValue = EncoderDataCategory.Unknown;
         Double processedSpeedHz = double.NaN;
+        long startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+        private static long PLOT_TIME_RANGE_MILLISECONDS = 10000;
 
         public Form1()
         {
@@ -26,16 +29,15 @@ namespace WindowsFormsApp1
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             // Create a line series.
 
+           
+            chart1.ChartAreas[0].AxisX.Minimum = 0;
+            chart1.ChartAreas[0].AxisX.Maximum = 10000;
+            chart1.Series[0].IsValueShownAsLabel = false;
             chart1.Series[0].LegendText = "revolutions per second for motor";
             chart1.Series[0].ChartType = SeriesChartType.Point;
             chart1.Series[0].IsValueShownAsLabel = true;
-            chart1.Series[0].Points.AddXY(1, 2);
-            chart1.Series[0].Points.AddXY(1,0.75);
-
-            chart1.Series[0].Points.AddXY(0.5, 2);
-
-            chart1.Series[0].Points.AddXY(0.3, 5);
-
+  
+            chart1.Series[0].LabelForeColor = Color.Transparent;
         }
 
         private void DataReceivedHandler(
@@ -98,8 +100,10 @@ namespace WindowsFormsApp1
 
             if (processedSpeedHz != double.NaN)
             {
-                DateTimeOffset now = DateTimeOffset.UtcNow;
-                chart1.Series[0].Points.AddXY(now.ToUnixTimeMilliseconds(), processedSpeedHz);
+                long timeStamp = -startTime + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
+                chart1.Series[0].Points.AddXY(timeStamp, processedSpeedHz);
+                chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS/2;
+                chart1.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
             }
         }
 
