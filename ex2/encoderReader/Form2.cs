@@ -17,6 +17,7 @@ namespace WindowsFormsApp1
         EncoderData encoderData = new EncoderData();
 
         EncoderDataCategory currentEncoderValue = EncoderDataCategory.Unknown;
+        Double processedSpeedHz = double.NaN;
 
         public Form1()
         {
@@ -25,7 +26,7 @@ namespace WindowsFormsApp1
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             // Create a line series.
 
-            chart1.Series[0].LegendText = "Brazil Order Statistics";
+            chart1.Series[0].LegendText = "revolutions per second for motor";
             chart1.Series[0].ChartType = SeriesChartType.Point;
             chart1.Series[0].IsValueShownAsLabel = true;
             chart1.Series[0].Points.AddXY(1, 2);
@@ -94,6 +95,12 @@ namespace WindowsFormsApp1
                 tempStringLenTxtBox.Text = serialDataString.Length.ToString();
                 serialDataString = "";
             }
+
+            if (processedSpeedHz != double.NaN)
+            {
+                DateTimeOffset now = DateTimeOffset.UtcNow;
+                chart1.Series[0].Points.AddXY(now.ToUnixTimeMilliseconds(), processedSpeedHz);
+            }
         }
 
         private void processEncoderStream(int newByte)
@@ -133,6 +140,8 @@ namespace WindowsFormsApp1
                 ThreadHelperClass.SetText(this, BDiffLSBTxtBox, encoderData.channelBDiffLSB.ToString());
                 currentEncoderValue = EncoderDataCategory.Unknown;
                 ThreadHelperClass.SetText(this, revPerSecTxtBox, EncoderDataHandler.calculateRotationalSpeedHz(encoderData).ToString());
+
+                processedSpeedHz = EncoderDataHandler.calculateRotationalSpeedHz(encoderData);
             }
         }
 
