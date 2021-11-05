@@ -12,6 +12,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form1 : Form
     {
+        private static long PLOT_TIME_RANGE_MILLISECONDS = 10000;
         SerialPort serialPort1 = new SerialPort("portNameNotSet", 9600, Parity.None, 8, StopBits.One);
         ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
         string serialDataString = "";
@@ -20,7 +21,6 @@ namespace WindowsFormsApp1
         EncoderDataCategory currentEncoderValue = EncoderDataCategory.Unknown;
         Double processedSpeedHz = double.NaN;
         long startTime = DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
-        private static long PLOT_TIME_RANGE_MILLISECONDS = 10000;
 
         public Form1()
         {
@@ -29,17 +29,17 @@ namespace WindowsFormsApp1
             serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
             // Create a line series.
 
-           
             chart1.ChartAreas[0].AxisX.Minimum = 0;
             chart1.ChartAreas[0].AxisX.Maximum = 10000;
             chart1.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
-            chart1.ChartAreas[0].AxisY.Title = "motor speed revs per second";
+            chart1.ChartAreas[0].AxisY.Title = "motor speed (rev/s)";
             chart1.ChartAreas[0].AxisX.Maximum = 10000;
             chart1.Series[0].IsValueShownAsLabel = false;
-            chart1.Series[0].LegendText = "revolutions per second for motor";
+            chart1.Series[0].LegendText = "motor revsPerSec";
             chart1.Series[0].ChartType = SeriesChartType.Point;
             chart1.Series[0].IsValueShownAsLabel = true;
-  
+
+            //so the label of the value of the point is not shown
             chart1.Series[0].LabelForeColor = Color.Transparent;
         }
 
@@ -53,8 +53,6 @@ namespace WindowsFormsApp1
                 ThreadHelperClass.SetText(this, serialBytesToReadTxtBox, serialPort1.BytesToRead.ToString());
                 int newByte = serialPort1.ReadByte();
                 processEncoderStream(newByte);
-                //ThreadHelperClass.SetText(this, orientationTxtBox, EncoderHandler.getOrientationDisplayed(acceleration));
-                //EncoderHandler.writeAccelerationToFile(acceleration, selectFileNameTxtBox.Text);
                 dataQueue.Enqueue(newByte);
 
                 serialDataString = serialDataString + "," + newByte.ToString();
