@@ -57,8 +57,8 @@ namespace WindowsFormsApp1
             {
                 ThreadHelperClass.SetText(this, serialBytesToReadTxtBox, serialPort1.BytesToRead.ToString());
                 int newByte = serialPort1.ReadByte();
-                processEncoderStream(newByte);
                 dataQueue.Enqueue(newByte);
+                processEncoderStream(newByte);
 
                 serialDataString = serialDataString + "," + newByte.ToString();
                 bytesToRead = serialPort1.BytesToRead;
@@ -116,6 +116,10 @@ namespace WindowsFormsApp1
 
         private void processEncoderStream(int newByte)
         {
+            if (currentEncoderValue != EncoderDataCategory.Unknown && newByte==255) {
+                newByte = 0;
+            }
+
             if (currentEncoderValue == EncoderDataCategory.Unknown)
             {
                 if (newByte == 255)
