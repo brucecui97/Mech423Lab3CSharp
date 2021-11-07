@@ -254,25 +254,33 @@ namespace WindowsFormsApp1
 
         }
 
-        private void trackBar1_Scroll(object sender, EventArgs e)
-        {
-            trackBarTxtBox.Text = trackBar1.Value.ToString();
-
-            if (trackBar1.Value < 0)
-            {
-                writeMotorCommand(Convert.ToUInt16(trackBar1.Value * -1), 2);
-            }
-            else
-            {
-                writeMotorCommand(Convert.ToUInt16(trackBar1.Value), 1);
-            }
-        }
-
         private void savePlotToCSVButtonClick(object sender, EventArgs e)
         {
             ChartSeriesExporter.exportSeriesToCSV(chart1.Series[0], chart1.Series[0].Name + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
             ChartSeriesExporter.exportSeriesToCSV(chart2.Series[0], chart2.Series[0].Name + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
         }
 
+        private void trackBarTxtBox_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void sendPWMButton_Click(object sender, EventArgs e)
+        {
+            if (numPWMTicksTxtBox.Text != "")
+            {
+
+                Int32 pwmNumTicks = Convert.ToInt32(numPWMTicksTxtBox.Text);
+
+                if (pwmNumTicks < 0)
+                {
+                    writeMotorCommand(Convert.ToUInt16(pwmNumTicks * -1), 2);
+                }
+                else
+                {
+                    writeMotorCommand(Convert.ToUInt16(pwmNumTicks), 1);
+                }
+            }
+        }
     }
 }

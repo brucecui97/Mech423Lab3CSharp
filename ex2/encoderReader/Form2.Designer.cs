@@ -66,16 +66,13 @@
             this.chart2 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.netStepCountTxtBox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.trackBarTxtBox = new System.Windows.Forms.TextBox();
+            this.numPWMTicksTxtBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.savePlotToCSVButton = new System.Windows.Forms.Button();
+            this.sendPWMButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -366,50 +363,22 @@
             this.label9.Text = "netStepCount";
             this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
-            // trackBar1
+            // numPWMTicksTxtBox
             // 
-            this.trackBar1.LargeChange = 1000;
-            this.trackBar1.Location = new System.Drawing.Point(423, 29);
-            this.trackBar1.Maximum = 65535;
-            this.trackBar1.Minimum = -65535;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(532, 56);
-            this.trackBar1.TabIndex = 21;
-            this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
-            // 
-            // trackBarTxtBox
-            // 
-            this.trackBarTxtBox.Location = new System.Drawing.Point(991, 42);
-            this.trackBarTxtBox.Name = "trackBarTxtBox";
-            this.trackBarTxtBox.Size = new System.Drawing.Size(100, 22);
-            this.trackBarTxtBox.TabIndex = 22;
+            this.numPWMTicksTxtBox.Location = new System.Drawing.Point(991, 42);
+            this.numPWMTicksTxtBox.Name = "numPWMTicksTxtBox";
+            this.numPWMTicksTxtBox.Size = new System.Drawing.Size(100, 22);
+            this.numPWMTicksTxtBox.TabIndex = 22;
+            this.numPWMTicksTxtBox.TextChanged += new System.EventHandler(this.trackBarTxtBox_TextChanged);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(432, 78);
+            this.label10.Location = new System.Drawing.Point(988, 81);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(31, 17);
+            this.label10.Size = new System.Drawing.Size(103, 17);
             this.label10.TabIndex = 23;
-            this.label10.Text = "ccw";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(901, 78);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(24, 17);
-            this.label11.TabIndex = 24;
-            this.label11.Text = "cw";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(680, 78);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(16, 17);
-            this.label12.TabIndex = 25;
-            this.label12.Text = "0";
+            this.label10.Text = "NumPWMTicks";
             // 
             // button1
             // 
@@ -430,18 +399,26 @@
             this.savePlotToCSVButton.UseVisualStyleBackColor = true;
             this.savePlotToCSVButton.Click += new System.EventHandler(this.savePlotToCSVButtonClick);
             // 
+            // sendPWMButton
+            // 
+            this.sendPWMButton.Location = new System.Drawing.Point(1114, 42);
+            this.sendPWMButton.Name = "sendPWMButton";
+            this.sendPWMButton.Size = new System.Drawing.Size(75, 23);
+            this.sendPWMButton.TabIndex = 28;
+            this.sendPWMButton.Text = "send";
+            this.sendPWMButton.UseVisualStyleBackColor = true;
+            this.sendPWMButton.Click += new System.EventHandler(this.sendPWMButton_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 851);
+            this.Controls.Add(this.sendPWMButton);
             this.Controls.Add(this.savePlotToCSVButton);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.trackBarTxtBox);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.numPWMTicksTxtBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.netStepCountTxtBox);
             this.Controls.Add(this.chart2);
@@ -477,7 +454,6 @@
             this.Load += new System.EventHandler(this.doWhenLoadForm);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -516,13 +492,11 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chart2;
         private System.Windows.Forms.TextBox netStepCountTxtBox;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TextBox trackBarTxtBox;
+        private System.Windows.Forms.TextBox numPWMTicksTxtBox;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button savePlotToCSVButton;
+        private System.Windows.Forms.Button sendPWMButton;
     }
 }
 
