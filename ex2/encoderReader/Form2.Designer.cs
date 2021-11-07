@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.label1 = new System.Windows.Forms.Label();
             this.itemsInQueueTxtBox = new System.Windows.Forms.TextBox();
             this.openPort = new System.Windows.Forms.Button();
@@ -70,6 +70,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.savePlotToCSVButton = new System.Windows.Forms.Button();
             this.sendPWMButton = new System.Windows.Forms.Button();
+            this.positionToSendTxtBox = new System.Windows.Forms.TextBox();
+            this.sendLocation = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
@@ -302,26 +304,26 @@
             // 
             // chart1
             // 
-            chartArea3.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
             this.chart1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            legend3.Name = "Legend1";
-            this.chart1.Legends.Add(legend3);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
             this.chart1.Location = new System.Drawing.Point(36, 464);
             this.chart1.Name = "chart1";
             this.chart1.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Light;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series3.Color = System.Drawing.Color.Lime;
-            series3.LabelBackColor = System.Drawing.Color.Transparent;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            series3.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
-            series3.SmartLabelStyle.CalloutLineAnchorCapStyle = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
-            series3.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Transparent;
-            series3.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
-            series3.SmartLabelStyle.Enabled = false;
-            this.chart1.Series.Add(series3);
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series1.Color = System.Drawing.Color.Lime;
+            series1.LabelBackColor = System.Drawing.Color.Transparent;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            series1.SmartLabelStyle.AllowOutsidePlotArea = System.Windows.Forms.DataVisualization.Charting.LabelOutsidePlotAreaStyle.No;
+            series1.SmartLabelStyle.CalloutLineAnchorCapStyle = System.Windows.Forms.DataVisualization.Charting.LineAnchorCapStyle.None;
+            series1.SmartLabelStyle.CalloutLineColor = System.Drawing.Color.Transparent;
+            series1.SmartLabelStyle.CalloutStyle = System.Windows.Forms.DataVisualization.Charting.LabelCalloutStyle.None;
+            series1.SmartLabelStyle.Enabled = false;
+            this.chart1.Series.Add(series1);
             this.chart1.Size = new System.Drawing.Size(689, 331);
             this.chart1.TabIndex = 17;
             this.chart1.Text = "chart1";
@@ -329,18 +331,18 @@
             // 
             // chart2
             // 
-            chartArea4.Name = "ChartArea1";
-            this.chart2.ChartAreas.Add(chartArea4);
-            legend4.Name = "Legend1";
-            this.chart2.Legends.Add(legend4);
+            chartArea2.Name = "ChartArea1";
+            this.chart2.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart2.Legends.Add(legend2);
             this.chart2.Location = new System.Drawing.Point(770, 464);
             this.chart2.Name = "chart2";
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.SmartLabelStyle.Enabled = false;
-            this.chart2.Series.Add(series4);
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.SmartLabelStyle.Enabled = false;
+            this.chart2.Series.Add(series2);
             this.chart2.Size = new System.Drawing.Size(784, 349);
             this.chart2.TabIndex = 18;
             this.chart2.Text = "chart2";
@@ -399,11 +401,30 @@
             this.sendPWMButton.UseVisualStyleBackColor = true;
             this.sendPWMButton.Click += new System.EventHandler(this.sendPWMButton_Click);
             // 
+            // positionToSendTxtBox
+            // 
+            this.positionToSendTxtBox.Location = new System.Drawing.Point(991, 108);
+            this.positionToSendTxtBox.Name = "positionToSendTxtBox";
+            this.positionToSendTxtBox.Size = new System.Drawing.Size(100, 22);
+            this.positionToSendTxtBox.TabIndex = 29;
+            // 
+            // sendLocation
+            // 
+            this.sendLocation.Location = new System.Drawing.Point(1114, 108);
+            this.sendLocation.Name = "sendLocation";
+            this.sendLocation.Size = new System.Drawing.Size(181, 23);
+            this.sendLocation.TabIndex = 30;
+            this.sendLocation.Text = "sendPositionCount";
+            this.sendLocation.UseVisualStyleBackColor = true;
+            this.sendLocation.Click += new System.EventHandler(this.sendLocation_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 851);
+            this.Controls.Add(this.sendLocation);
+            this.Controls.Add(this.positionToSendTxtBox);
             this.Controls.Add(this.sendPWMButton);
             this.Controls.Add(this.savePlotToCSVButton);
             this.Controls.Add(this.label10);
@@ -485,6 +506,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button savePlotToCSVButton;
         private System.Windows.Forms.Button sendPWMButton;
+        private System.Windows.Forms.TextBox positionToSendTxtBox;
+        private System.Windows.Forms.Button sendLocation;
     }
 }
 

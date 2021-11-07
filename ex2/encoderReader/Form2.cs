@@ -282,5 +282,10 @@ namespace WindowsFormsApp1
                 }
             }
         }
+
+        private void sendLocation_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
