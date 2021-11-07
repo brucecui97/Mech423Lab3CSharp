@@ -26,10 +26,8 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-
-            serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
-      
             initPlot();
+            serialPort1.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
         }
 
         private void initPlot()
@@ -46,6 +44,19 @@ namespace WindowsFormsApp1
 
             //so the label of the value of the point is not shown
             chart1.Series[0].LabelForeColor = Color.Transparent;
+
+            chart2.ChartAreas[0].AxisX.Minimum = 0;
+            chart2.ChartAreas[0].AxisX.Maximum = 10000;
+            chart2.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
+            chart2.ChartAreas[0].AxisY.Title = "motor position (encoder counts)";
+            chart2.ChartAreas[0].AxisX.Maximum = 10000;
+            chart2.Series[0].IsValueShownAsLabel = false;
+            chart2.Series[0].LegendText = "motor positiion (encoder count)";
+            chart2.Series[0].ChartType = SeriesChartType.Point;
+            chart2.Series[0].IsValueShownAsLabel = true;
+
+            //so the label of the value of the point is not shown
+            chart2.Series[0].LabelForeColor = Color.Transparent;
         }
 
         private void DataReceivedHandler(
@@ -110,6 +121,10 @@ namespace WindowsFormsApp1
                 chart1.Series[0].Points.AddXY(timeStamp, processedSpeedHz);
                 chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS/2;
                 chart1.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
+
+                chart2.Series[0].Points.AddXY(timeStamp, netEncoderStepsTakenSinceStart);
+                chart2.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS / 2;
+                chart2.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
             }
             netStepCountTxtBox.Text = netEncoderStepsTakenSinceStart.ToString();
         }
