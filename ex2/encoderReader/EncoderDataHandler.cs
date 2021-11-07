@@ -11,6 +11,7 @@ namespace WindowsFormsApp1
         public static readonly Double COUNT_PER_REVOLUTION = 100;
         public static readonly Double SECONDS_BETWEEN_UART = 0.04;
         public static readonly Double SIXTY_SECONDS_PER_MINUTE = 60;
+        public static readonly Double LINEAR_METERS_CHANGE_PER_COUNT = 0.003;
 
         public static Double calculateRotationalSpeedHz(EncoderData encoderData) {
             return calculateNetStepChange(encoderData) * (1 / COUNT_PER_REVOLUTION) / SECONDS_BETWEEN_UART;
