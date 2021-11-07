@@ -70,8 +70,11 @@
             this.label10 = new System.Windows.Forms.Label();
             this.savePlotToCSVButton = new System.Windows.Forms.Button();
             this.sendPWMButton = new System.Windows.Forms.Button();
-            this.positionToSendTxtBox = new System.Windows.Forms.TextBox();
-            this.sendLocation = new System.Windows.Forms.Button();
+            this.positionToSendLSBTxtBox = new System.Windows.Forms.TextBox();
+            this.sendPositionCount = new System.Windows.Forms.Button();
+            this.positionToSendMSBTxtBox = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chart2)).BeginInit();
             this.SuspendLayout();
@@ -401,30 +404,58 @@
             this.sendPWMButton.UseVisualStyleBackColor = true;
             this.sendPWMButton.Click += new System.EventHandler(this.sendPWMButton_Click);
             // 
-            // positionToSendTxtBox
+            // positionToSendLSBTxtBox
             // 
-            this.positionToSendTxtBox.Location = new System.Drawing.Point(991, 108);
-            this.positionToSendTxtBox.Name = "positionToSendTxtBox";
-            this.positionToSendTxtBox.Size = new System.Drawing.Size(100, 22);
-            this.positionToSendTxtBox.TabIndex = 29;
+            this.positionToSendLSBTxtBox.Location = new System.Drawing.Point(991, 108);
+            this.positionToSendLSBTxtBox.Name = "positionToSendLSBTxtBox";
+            this.positionToSendLSBTxtBox.Size = new System.Drawing.Size(100, 22);
+            this.positionToSendLSBTxtBox.TabIndex = 29;
             // 
-            // sendLocation
+            // sendPositionCount
             // 
-            this.sendLocation.Location = new System.Drawing.Point(1114, 108);
-            this.sendLocation.Name = "sendLocation";
-            this.sendLocation.Size = new System.Drawing.Size(181, 23);
-            this.sendLocation.TabIndex = 30;
-            this.sendLocation.Text = "sendPositionCount";
-            this.sendLocation.UseVisualStyleBackColor = true;
-            this.sendLocation.Click += new System.EventHandler(this.sendLocation_Click);
+            this.sendPositionCount.Location = new System.Drawing.Point(1114, 108);
+            this.sendPositionCount.Name = "sendPositionCount";
+            this.sendPositionCount.Size = new System.Drawing.Size(181, 23);
+            this.sendPositionCount.TabIndex = 30;
+            this.sendPositionCount.Text = "sendPositionCount";
+            this.sendPositionCount.UseVisualStyleBackColor = true;
+            this.sendPositionCount.Click += new System.EventHandler(this.sendPositionCountClick);
+            // 
+            // positionToSendMSBTxtBox
+            // 
+            this.positionToSendMSBTxtBox.Location = new System.Drawing.Point(869, 109);
+            this.positionToSendMSBTxtBox.Name = "positionToSendMSBTxtBox";
+            this.positionToSendMSBTxtBox.Size = new System.Drawing.Size(100, 22);
+            this.positionToSendMSBTxtBox.TabIndex = 31;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(898, 140);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 17);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "MSB";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(1020, 140);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(34, 17);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "LSB";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1582, 851);
-            this.Controls.Add(this.sendLocation);
-            this.Controls.Add(this.positionToSendTxtBox);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.positionToSendMSBTxtBox);
+            this.Controls.Add(this.sendPositionCount);
+            this.Controls.Add(this.positionToSendLSBTxtBox);
             this.Controls.Add(this.sendPWMButton);
             this.Controls.Add(this.savePlotToCSVButton);
             this.Controls.Add(this.label10);
@@ -506,8 +537,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button savePlotToCSVButton;
         private System.Windows.Forms.Button sendPWMButton;
-        private System.Windows.Forms.TextBox positionToSendTxtBox;
-        private System.Windows.Forms.Button sendLocation;
+        private System.Windows.Forms.TextBox positionToSendLSBTxtBox;
+        private System.Windows.Forms.Button sendPositionCount;
+        private System.Windows.Forms.TextBox positionToSendMSBTxtBox;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }
 

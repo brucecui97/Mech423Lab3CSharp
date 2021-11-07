@@ -283,9 +283,15 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void sendLocation_Click(object sender, EventArgs e)
-        {
 
+        private void sendPositionCountClick(object sender, EventArgs e)
+        {
+            byte[] bytesToSend = { 255, Convert.ToByte(positionToSendMSBTxtBox.Text), Convert.ToByte(positionToSendLSBTxtBox.Text)};
+            if (serialPort1.IsOpen)
+            {
+                serialPort1.Write(bytesToSend, 0, 3);
+                debugTxtBox.AppendText("wrote something");
+            }
         }
     }
 }
