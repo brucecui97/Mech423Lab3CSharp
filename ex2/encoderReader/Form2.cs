@@ -37,6 +37,7 @@ namespace WindowsFormsApp1
             chart1.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
             chart1.ChartAreas[0].AxisY.Title = "motor speed (rev/s)";
             chart1.ChartAreas[0].AxisX.Maximum = 10000;
+            chart1.Series[0].Name = "revolution per second (hz) vs time (millisecond)";
             chart1.Series[0].IsValueShownAsLabel = false;
             chart1.Series[0].LegendText = "motor revsPerSec";
             chart1.Series[0].ChartType = SeriesChartType.Point;
@@ -50,6 +51,7 @@ namespace WindowsFormsApp1
             chart2.ChartAreas[0].AxisX.Title = "time since program start (millisecond)";
             chart2.ChartAreas[0].AxisY.Title = "motor position (encoder counts)";
             chart2.ChartAreas[0].AxisX.Maximum = 10000;
+            chart2.Series[0].Name = "Motor Position (number encoder ticks since start) vs time (millisecond)";
             chart2.Series[0].IsValueShownAsLabel = false;
             chart2.Series[0].LegendText = "motor positiion (encoder count)";
             chart2.Series[0].ChartType = SeriesChartType.Point;
