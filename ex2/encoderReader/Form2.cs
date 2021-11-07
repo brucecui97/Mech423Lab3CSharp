@@ -176,6 +176,21 @@ namespace WindowsFormsApp1
             }
         }
 
+        private void writeMotorCommand(ushort numTicks, int direction)
+        {
+            byte[] numberBytes = BitConverter.GetBytes(numTicks);
+            byte[] bytesToSend = { 255, numberBytes[1], numberBytes[0], (byte)direction };
+            debugTxtBox.AppendText(numberBytes[1].ToString() + "," + numberBytes[0].ToString());
+            //debugTxtBox.AppendText(bytesToSend[0].ToString() + "," + bytesToSend[3].ToString()); 
+
+            if (serialPort1.IsOpen)
+            {
+                debugTxtBox.AppendText(numberBytes.Length.ToString());
+                serialPort1.Write(bytesToSend, 0, 4);
+                debugTxtBox.AppendText("wrote something");
+            }
+        }
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -232,6 +247,20 @@ namespace WindowsFormsApp1
         private void label9_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void trackBar1_Scroll(object sender, EventArgs e)
+        {
+            trackBarTxtBox.Text = trackBar1.Value.ToString();
+
+            if (trackBar1.Value < 0)
+            {
+                writeMotorCommand(Convert.ToUInt16(trackBar1.Value * -1), 2);
+            }
+            else
+            {
+                writeMotorCommand(Convert.ToUInt16(trackBar1.Value), 1);
+            }
         }
     }
 }
