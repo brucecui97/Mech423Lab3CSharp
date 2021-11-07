@@ -1,4 +1,5 @@
-﻿using System;
+﻿using encoderReader;
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Drawing;
@@ -121,7 +122,7 @@ namespace WindowsFormsApp1
             {
                 long timeStamp = -startTime + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds();
                 chart1.Series[0].Points.AddXY(timeStamp, processedSpeedHz);
-                chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS/2;
+                chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS / 2;
                 chart1.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
 
                 chart2.Series[0].Points.AddXY(timeStamp, netEncoderStepsTakenSinceStart);
@@ -133,7 +134,8 @@ namespace WindowsFormsApp1
 
         private void processEncoderStream(int newByte)
         {
-            if (currentEncoderValue != EncoderDataCategory.Unknown && newByte==255) {
+            if (currentEncoderValue != EncoderDataCategory.Unknown && newByte == 255)
+            {
                 newByte = 0;
             }
 
@@ -167,7 +169,8 @@ namespace WindowsFormsApp1
             }
 
 
-            else if (currentEncoderValue == EncoderDataCategory.ChannelBLSB) {
+            else if (currentEncoderValue == EncoderDataCategory.ChannelBLSB)
+            {
                 encoderData.channelBDiffLSB = newByte;
                 ThreadHelperClass.SetText(this, BDiffLSBTxtBox, encoderData.channelBDiffLSB.ToString());
                 currentEncoderValue = EncoderDataCategory.Unknown;
@@ -265,40 +268,11 @@ namespace WindowsFormsApp1
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void savePlotToCSVButtonClick(object sender, EventArgs e)
         {
-
-            String csvContent = "";
-
-
-     string seriesName = chart1.Series[0].Name;
-        int pointCount = chart1.Series[0].Points.Count;
-
-     for(int p =0; p<pointCount; p++)
-     {
-         DataPoint point = chart1.Series[0].Points[p];
-        string yValuesCSV = String.Empty;
-        int count = point.YValues.Length;
-         for(int i = 0; i<count ; i++)
-         {
-              yValuesCSV += point.YValues[i];
-
-              if(i != count-1)
-              yValuesCSV += ",";
-         }
-
-    String csvLine = seriesName + "," + point.XValue + "," + yValuesCSV;
-     csvContent += csvLine + "\r\n";
-     }
-
-
-// Using stream writer class the chart points are exported. Create an instance of the stream writer class.
-StreamWriter file = new System.IO.StreamWriter("Chartdata.csv");
-
-// Write the datapoints into the file.
-file.WriteLine(csvContent);
-
-file.Close();
+            ChartSeriesExporter.exportSeriesToCSV(chart1.Series[0], chart1.Series[0].Name + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
+            ChartSeriesExporter.exportSeriesToCSV(chart2.Series[0], chart2.Series[0].Name + DateTimeOffset.UtcNow.ToUnixTimeMilliseconds());
         }
+
     }
 }

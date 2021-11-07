@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChartSeriesExporter.cs" />
     <Compile Include="EncoderData.cs" />
     <Compile Include="EncoderDataCategory.cs" />
     <Compile Include="EncoderDataHandler.cs" />
