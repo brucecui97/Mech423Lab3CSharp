@@ -16,6 +16,8 @@ namespace WindowsFormsApp1
         private static long PLOT_TIME_RANGE_MILLISECONDS = 10000;
         SerialPort serialPort1 = new SerialPort("portNameNotSet", 9600, Parity.None, 8, StopBits.One);
         ConcurrentQueue<Int32> dataQueue = new ConcurrentQueue<Int32>();
+        ConcurrentQueue<Double> netEncoderStepsHistory = new ConcurrentQueue<Double>();
+        ConcurrentQueue<Double> plottedNetEncoderCount = new ConcurrentQueue<Double>();
         string serialDataString = "";
         EncoderData encoderData = new EncoderData();
 
@@ -125,6 +127,7 @@ namespace WindowsFormsApp1
                 chart1.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS / 2;
                 chart1.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
 
+                plottedNetEncoderCount.Enqueue(netEncoderStepsTakenSinceStart);
                 chart2.Series[0].Points.AddXY(timeStamp, netEncoderStepsTakenSinceStart);
                 chart2.ChartAreas[0].AxisX.Minimum = timeStamp - PLOT_TIME_RANGE_MILLISECONDS / 2;
                 chart2.ChartAreas[0].AxisX.Maximum = timeStamp + PLOT_TIME_RANGE_MILLISECONDS;
@@ -178,6 +181,7 @@ namespace WindowsFormsApp1
 
                 processedSpeedHz = EncoderDataHandler.calculateRotationalSpeedHz(encoderData);
                 netEncoderStepsTakenSinceStart = netEncoderStepsTakenSinceStart + EncoderDataHandler.calculateNetStepChange(encoderData);
+                netEncoderStepsHistory.Enqueue(netEncoderStepsTakenSinceStart);
             }
         }
 

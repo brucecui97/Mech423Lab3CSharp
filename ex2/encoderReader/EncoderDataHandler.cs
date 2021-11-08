@@ -8,8 +8,8 @@ namespace WindowsFormsApp1
 {
     public class EncoderDataHandler
     {
-        public static readonly Double COUNT_PER_REVOLUTION = 100;
-        public static readonly Double SECONDS_BETWEEN_UART = 0.04;
+        public static readonly Double COUNT_PER_REVOLUTION = 490;
+        public static readonly Double SECONDS_BETWEEN_UART = 0.08;
         public static readonly Double SIXTY_SECONDS_PER_MINUTE = 60;
         public static readonly Double LINEAR_METERS_CHANGE_PER_COUNT = 0.003;
 
